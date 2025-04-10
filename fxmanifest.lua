@@ -4,7 +4,7 @@ game 'gta5'
 name "TRP_lib"
 description "TRP Libary"
 author "Tristian R. / TRP Dev Team"
-version "1.0.0-beta"
+version "1.0.1-beta"
 
 lua54 'on'
 
