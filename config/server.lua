@@ -5,22 +5,26 @@ local CadDataTypes = {}
 local CadWfTypes = {}
 
 
+Config.LoggingEnabled = false
 
-Config.DiscordEnabled = false -- Enable Discord Options
-Config.DiscordLoggingEnable = false --Enable logging to Discord via webhook.<br>Must have the webhook enabled.
-Discord.GuildId = '' --Your server ID.
-Discord.BotToken = '' --Your Bot token
 
--- Add Custom Events here or call webhook Event in your own script.<br>Leave blank if you dont want to use them.
-Discord.WebhookEvents = {
-    Logging = '',
-    ApiCall = '',
-}
+----Discord Configurations
 
-Discord.Events = { --Enable Discord Features
-    getMember = false,
-    getGuild = false,
-    getRoles = false
+Config.Discord = {
+    DiscordEnabled = false, -- Enable Discord Options
+    LoggingEnable = false, --Enable logging to Discord via webhook.<br>Must have the webhook enabled.
+    GuildId = '', --Your server ID.
+    BotToken = '',--Your Bot token
+    -- Add Custom Events here or call webhook Event in your own script.<br>Leave blank if you dont want to use them.
+    Webhooks = {
+        Logging = '',
+        ApiCall = '',
+    },
+    Events = { --Enable Discord Features
+        getMember = false,
+        getGuild = false,
+        getRoles = false
+    }
 }
 
 -- CAD API Configuration
