@@ -1,7 +1,7 @@
----@param webhookUrl string
----@param webhookUsername? string
----@param webhookAvatarUrl? string
----@param webhookData table|string
+---@param webhookUrl string --required
+---@param webhookUsername? string --optional
+---@param webhookAvatarUrl? string --optional
+---@param webhookData table|string --table or string.
 ---@return boolean
 function TRPlib.postDiscordWebhook(webhookUrl, webhookData, webhookUsername, webhookAvatarUrl)
     if not webhookUrl then return false end
