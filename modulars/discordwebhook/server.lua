@@ -16,5 +16,5 @@ function TRPlib.postDiscordWebhook(webhookUrl, webhookData, webhookUsername, web
         TRPlib.Print('[TRP-CadSync.Discord.API]: ' .. statusCode .. responseBody)
         return false
     end
-    return false
+    return true
 end
