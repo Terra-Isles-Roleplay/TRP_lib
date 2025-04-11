@@ -8,12 +8,12 @@
 ---@param message string
 ---@param embed string
 ---@param level any
----@return nil
+---@return boolean
 function TRPlib.DiscordLog(url, message, embed, level)
-    if not TRPlib.Config.DiscordLoggingEnable then return end 
+    if not TRPlib.Config.DiscordLoggingEnable then return false end 
     local webhookData
-    if not message or not level then return end
-    if type(message) ~= 'string' then return end
+    if not message or not level then return false end
+    if type(message) ~= 'string' then return false end
     webhookData.embeds = {}
     webhookData.embeds.footer = {}
     if embed then
@@ -24,6 +24,6 @@ function TRPlib.DiscordLog(url, message, embed, level)
         webhookData.content = message
     end
      ---@type boolean, string, string
-    TRPlib.Discord.postWebhook('', webhookData)
-    return
+    local completed = TRPlib.Discord.postWebhook('', webhookData)
+    return completed
 end
