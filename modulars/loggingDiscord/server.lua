@@ -7,17 +7,17 @@
 ---@param url string
 ---@param message string
 ---@param embed string
----@param logType any
+---@param level any
 ---@return nil
-function TRPlib.DiscordLog(url, message, embed, logType)
+function TRPlib.DiscordLog(url, message, embed, level)
     if not TRPlib.Config.DiscordLoggingEnable then return end 
     local webhookData
-    if not message or not logType then return end
+    if not message or not level then return end
     if type(message) ~= 'string' then return end
     webhookData.embeds = {}
     webhookData.embeds.footer = {}
     if embed then
-        webhookData.embeds.name = '['..logType..']'
+        webhookData.embeds.name = '['..level..']'
         webhookData.embeds.discription = message
         webhookData.embed.footer.text = 'TRP Logging System'
     else
