@@ -4,7 +4,7 @@
 ---@param webhookData table|string --table or string.
 ---@return boolean
 function TRPlib.postDiscordWebhook(webhookUrl, webhookData, webhookUsername, webhookAvatarUrl)
-    if not webhookUrl then return false end
+    if not webhookUrl or not webhookData then return false end
     local webhookInfo
     if webhookUsername then webhookInfo.username = webhookUsername end
     if webhookAvatarUrl then webhookInfo.avatar_url = webhookAvatarUrl end
