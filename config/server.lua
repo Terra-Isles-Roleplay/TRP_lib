@@ -1,17 +1,19 @@
 ---@type table
 local Config = {}
-local Discord = {}
 local CadDataTypes = {}
 local CadWfTypes = {}
 
 
-Config.LoggingEnabled = false
+Config.Logging = {
+    Enabled = false,
+    LevelsEnabled = ['info', 'warn', 'error', 'debug'] --remove option to disable.
+}
 
 
 ----Discord Configurations
 
 Config.Discord = {
-    DiscordEnabled = false, -- Enable Discord Options
+    Enabled = false, -- Enable Discord Options
     LoggingEnable = false, --Enable logging to Discord via webhook.<br>Must have the webhook enabled.
     GuildId = '', --Your server ID.
     BotToken = '',--Your Bot token
@@ -19,23 +21,31 @@ Config.Discord = {
     Webhooks = {
         Logging = '',
         ApiCall = '',
+        Vmenu = '',
     },
     Events = { --Enable Discord Features
         getMember = false,
         getGuild = false,
         getRoles = false
+    },
+    Whitelist = { --diable if not wanting to use discord whitelist.
+        Enabled = false, -- must have all discord fetures enabled.
+        Roles = ['put id here','second id']
     }
 }
 
 -- CAD API Configuration
 
-Config.CadType = 'TRP' -- Options: TRP, Bubble
-Config.CadApiUrl = '' -- Base Url for API (i.e. https://example.com/api/1.1/)
-Config.BubbleWfUrl = 'wf/' --Only use if using a bubblecad (should be wf/)
-Config.BubbleDataUrl = 'obj/'--Only use if using a bubblecad (should be obj/)
-Config.TRPCadVerison = 'v1' --Only used when using TRP's Cad. (Currently private)
-Config.CadApiKeyHeader = '' --Use this if your API key should go in the header
-Config.CadApIKeyQuerry = '' --Use this if your API key should be sent as a param.
+Config.Cad = {
+    Type = 'TRP', -- Options: TRP, Bubble
+    ApiUrl = '', -- Base Url for API (i.e. https://example.com/api/1.1/)
+    BubbleWfUrl = 'wf/', --Only use if using a bubblecad (should be wf/)
+    BubbleDataUrl = 'obj/', --Only use if using a bubblecad (should be obj/)
+    TRPCadVerison = 'v1', --Only used when using TRP's Cad. (Currently private)
+    ApiKeyHeader = '',
+    ApiKeyQuerry = '',
+
+}
 
 -- Cad Data Types <br>
 -- If you cad dosn't use a type then replace with nil <br> Example: calls = 'call' or calls = nil
@@ -88,7 +98,6 @@ CadWfTypes.getWeapons = ''
 
 Config.DataTypes = CadDataTypes
 Config.WfTypes = CadWfTypes
-Config.Discord = Discord
 TRPlib.Config = Config
 
 
