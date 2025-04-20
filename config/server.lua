@@ -1,4 +1,3 @@
----@type table
 local Config = {}
 local CadDataTypes = {}
 local CadWfTypes = {}
@@ -6,31 +5,36 @@ local CadWfTypes = {}
 
 Config.Logging = {
     Enabled = false,
-    LevelsEnabled = ['info', 'warn', 'error', 'debug'] --remove option to disable.
+    LevelsEnabled = {
+        info = false,
+        warn = false,
+        error = false,
+        debug = false
+    }
 }
 
 
-----Discord Configurations
+-- Discord Configurations
 
 Config.Discord = {
     Enabled = false, -- Enable Discord Options
-    LoggingEnable = false, --Enable logging to Discord via webhook.<br>Must have the webhook enabled.
-    GuildId = '', --Your server ID.
-    BotToken = '',--Your Bot token
-    -- Add Custom Events here or call webhook Event in your own script.<br>Leave blank if you dont want to use them.
+    LoggingEnable = false, -- Enable logging to Discord via webhook. Must have the webhook enabled.
+    GuildId = '', -- Your server ID.
+    BotToken = '', -- Your Bot token
+    -- Add Custom Events here or call webhook Event in your own script. Leave blank if you don't want to use them.
     Webhooks = {
         Logging = '',
         ApiCall = '',
         Vmenu = '',
     },
-    Events = { --Enable Discord Features
-        getMember = false,
-        getGuild = false,
-        getRoles = false
+    Events = { -- Enable Discord Features
+        getMember = false, --Get a user of a discord server
+        getGuild = false, --Get a Discord server
+        getRoles = false --Get a users roles in a discord server
     },
-    Whitelist = { --diable if not wanting to use discord whitelist.
-        Enabled = false, -- must have all discord fetures enabled.
-        Roles = ['put id here','second id']
+    Whitelist = { -- Disable if not wanting to use Discord whitelist.
+        Enabled = false, -- Must have all Discord features enabled.
+        Roles = {"put id here", "second id"} --String table of the roles you want to be whitelisted. Not currently setup.
     }
 }
 
@@ -50,7 +54,6 @@ Config.Cad = {
 -- Cad Data Types <br>
 -- If you cad dosn't use a type then replace with nil <br> Example: calls = 'call' or calls = nil
 
-
 CadDataTypes.calls = '' --Also sometimes called files
 CadDataTypes.civilians = ''
 CadDataTypes.departments = ''
@@ -59,10 +62,9 @@ CadDataTypes.subdivisions = ''
 CadDataTypes.users = ''
 CadDataTypes.vehicles = ''
 CadDataTypes.weapons = ''
---- Add custom Data Types here.
+-- Add custom Data Types here.
 
 -- Cad Workflow Types (Only used for TRP & Bubble)
-
 
 CadWfTypes.getCall = '' --Get Single call
 CadWfTypes.getCivilian = '' --Get Single Civilian
@@ -72,7 +74,7 @@ CadWfTypes.getSubdivision = '' --Get Single Subdivision
 CadWfTypes.getUser = '' --Get Single user
 CadWfTypes.getVehicle = '' --Get Single vehicle
 CadWfTypes.getWeapon = '' --Get Single vehicle
---- Add custom Get Workflows here.
+-- Add custom Get Workflows here.
 
 CadWfTypes.setCall = '' --Set Single call
 CadWfTypes.setCivilian = '' --Set Single Civilian
@@ -80,7 +82,7 @@ CadWfTypes.setDepartment = '' --Set Single Department
 CadWfTypes.setSubdivision = '' --Set Single Subdivision
 CadWfTypes.setVehicle = '' --Set Single vehicle
 CadWfTypes.setWeapon = '' --Set Single vehicle
---- Add custom Set Workflow type here.
+-- Add custom Set Workflow type here.
 
 CadWfTypes.getCalls = ''
 CadWfTypes.getCivilians = ''
@@ -90,11 +92,9 @@ CadWfTypes.getUsers = ''
 CadWfTypes.getVehicles = ''
 CadWfTypes.getWeapons = ''
 
---- Add custom Get Workflow types here. - muti-item
+-- Add custom Get Workflow types here. - muti-item
 
-
-
----Do not edit.
+-- DO NOT EDIT
 
 Config.DataTypes = CadDataTypes
 Config.WfTypes = CadWfTypes
